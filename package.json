@@ -1,0 +1,24 @@
+{
+  "name": "ninst",
+  "version": "0.0.1",
+  "description": "Install, Distribute binaries via NPM",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pgollangi/ninst.git"
+  },
+  "keywords": [
+    "ninst",
+    "npm-binary-installer",
+    "binary-installer"
+  ],
+  "author": "Prasanna Kumar Gollangi <prassu158@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pgollangi/npm-binary-installer/issues"
+  },
+  "homepage": "https://github.com/pgollangi/npm-binary-installer#readme"
+}
