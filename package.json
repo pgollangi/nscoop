@@ -1,7 +1,7 @@
 {
   "name": "ninst",
   "version": "0.0.1",
-  "description": "Install, Distribute binaries via NPM",
+  "description": "Install portable cross-platform executable binaries via NPM",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
