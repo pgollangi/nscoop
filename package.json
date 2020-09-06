@@ -1,5 +1,5 @@
 {
-  "name": "ninst",
+  "name": "nscoop",
   "version": "0.0.1",
   "description": "Install portable cross-platform executable binaries via NPM",
   "main": "index.js",
@@ -8,10 +8,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pgollangi/ninst.git"
+    "url": "git+https://github.com/pgollangi/npm-binary-installer.git"
   },
   "keywords": [
-    "ninst",
+    "nscoop",
     "npm-binary-installer",
     "binary-installer"
   ],
@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/pgollangi/npm-binary-installer/issues"
   },
-  "homepage": "https://github.com/pgollangi/npm-binary-installer#readme"
+  "homepage": "https://github.com/pgollangi/npm-binary-installer#readme",
+  "dependencies": {
+    "commander": "^6.1.0"
+  }
 }
