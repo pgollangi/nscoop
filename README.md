@@ -1,5 +1,7 @@
 ![Build](https://github.com/pgollangi/nscoop/workflows/Build/badge.svg)
-![node-current](https://img.shields.io/node/v/nscoop)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/pgollangi/nscoop)
+![npm](https://img.shields.io/npm/v/nscoop)
+<!-- ![node-current](https://img.shields.io/node/v/nscoop) -->
 ![License: MIT](https://img.shields.io/github/license/pgollangi/nscoop)
 
 # nscoop 
