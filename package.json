@@ -3,8 +3,7 @@
   "version": "0.0.1",
   "description": "Install portable cross-platform executable binaries via NPM",
   "main": "index.js",
-  "scripts": {
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pgollangi/nscoop.git"
@@ -21,6 +20,9 @@
     "url": "https://github.com/pgollangi/nscoop/issues"
   },
   "homepage": "https://github.com/pgollangi/nscoop#readme",
+  "engines": {
+    "node": ">=0.12"
+  },
   "dependencies": {
     "commander": "^6.1.0"
   }
