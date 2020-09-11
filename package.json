@@ -8,8 +8,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pgollangi/npm-binary-installer.git"
+    "url": "git+https://github.com/pgollangi/nscoop.git"
   },
+  "type": "module",
   "keywords": [
     "nscoop",
     "npm-binary-installer",
@@ -18,9 +19,9 @@
   "author": "Prasanna Kumar Gollangi <prassu158@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/pgollangi/npm-binary-installer/issues"
+    "url": "https://github.com/pgollangi/nscoop/issues"
   },
-  "homepage": "https://github.com/pgollangi/npm-binary-installer#readme",
+  "homepage": "https://github.com/pgollangi/nscoop#readme",
   "dependencies": {
     "commander": "^6.1.0"
   }
