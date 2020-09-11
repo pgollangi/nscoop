@@ -1,3 +1,5 @@
+![Build](https://github.com/pgollangi/nscoop/workflows/Build/badge.svg)
+
 # nscoop 
 
 Install portable cross-platform executable binaries via NPM.
