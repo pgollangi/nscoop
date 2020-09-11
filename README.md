@@ -1,4 +1,4 @@
-![Build](https://github.com/pgollangi/nscoop/workflows/Build/badge.svg
+![Build](https://github.com/pgollangi/nscoop/workflows/Build/badge.svg)
 ![npm](https://img.shields.io/npm/v/nscoop)
 ![License: MIT](https://img.shields.io/github/license/pgollangi/nscoop)
 <!-- ![node-current](https://img.shields.io/node/v/nscoop) -->
