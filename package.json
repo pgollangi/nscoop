@@ -15,7 +15,7 @@
     "binary-installer"
   ],
   "author": "Prasanna Kumar Gollangi <prassu158@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/pgollangi/nscoop/issues"
   },
