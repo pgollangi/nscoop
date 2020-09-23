@@ -1,5 +1,5 @@
 ![build](https://github.com/pgollangi/nscoop/workflows/Build/badge.svg)
-[![codecov](https://codecov.io/gh/pgollangi/nscoop/branch/master/graph/badge.svg)](https://codecov.io/gh/pgollangi/nscoop)
+[![Codecov](https://img.shields.io/codecov/c/github/pgollangi/nscoop)](https://codecov.io/gh/pgollangi/nscoop)
 ![npm](https://img.shields.io/npm/v/nscoop)
 [![dependencies Status](https://david-dm.org/pgollangi/nscoop/status.svg)](https://david-dm.org/pgollangi/nscoop)
 [![devDependencies Status](https://david-dm.org/pgollangi/nscoop/dev-status.svg)](https://david-dm.org/pgollangi/nscoop?type=dev)
