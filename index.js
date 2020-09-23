@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
-import  program  from "commander";
+const { program } = require('commander');
 
-import { getInstaller } from "./src/preset.js";
+
+const { getInstaller } = require('./src/helper');
 
 program
     .version('0.1.0')

@@ -1,5 +1,4 @@
-
-export default class Installer {
+class Installer {
 
     constructor(repo, options) {
         this.repo = repo;
@@ -24,3 +23,7 @@ export default class Installer {
         return "linux-386";
     }
 }
+
+
+
+exports.Installer = Installer;

@@ -1,14 +1,12 @@
 
-import https from "https"
-import fs from "fs"
+const https = require("https")
+const fs = require("fs")
+const fetch = require("node-fetch")
+const tar = require("tar")
 
-import fetch from "node-fetch"
-import tar from "tar"
+const Installer = require("../installer").Installer
 
-import Installer from "../installer.js"
-
-
-export class GithubInstaller extends Installer {
+class GithubInstaller extends Installer {
 
     constructor(repo, options) {
         super(repo, options)
@@ -50,3 +48,5 @@ export class GithubInstaller extends Installer {
     };
 
 }
+
+exports.GithubInstaller = GithubInstaller;
