@@ -1,0 +1,5 @@
+{
+    "name": "nscoop",
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true
+}
