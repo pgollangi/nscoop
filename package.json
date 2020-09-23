@@ -3,7 +3,10 @@
   "version": "0.0.1",
   "description": "Install portable cross-platform executable binaries via NPM",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "lint": "eslint index.js ",
+    "test": "jest"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pgollangi/nscoop.git"
@@ -20,7 +23,7 @@
   },
   "homepage": "https://github.com/pgollangi/nscoop#readme",
   "engines": {
-    "node": ">=0.12"
+    "node": ">= 6"
   },
   "dependencies": {
     "commander": "^6.1.0",
@@ -28,6 +31,13 @@
     "tar": "^6.0.5"
   },
   "devDependencies": {
-    "mocha": "^8.1.3"
+    "@types/jest": "^26.0.14",
+    "eslint": "^7.9.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "jest": "^26.4.2"
   }
 }
