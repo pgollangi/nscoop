@@ -1,4 +1,4 @@
-![build](https://github.com/pgollangi/nscoop/workflows/Build/badge.svg)
+![CI](https://github.com/pgollangi/nscoop/workflows/CI/badge.svg)
 [![Codecov](https://img.shields.io/codecov/c/github/pgollangi/nscoop)](https://codecov.io/gh/pgollangi/nscoop)
 ![npm](https://img.shields.io/npm/v/nscoop)
 [![dependencies Status](https://david-dm.org/pgollangi/nscoop/status.svg)](https://david-dm.org/pgollangi/nscoop)
