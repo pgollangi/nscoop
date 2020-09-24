@@ -1,8 +1,7 @@
-
-const https = require('https')
+const os = require('os')
 const fs = require('fs')
 const fetch = require('node-fetch')
-const decompress = require('decompress')
+var uniqueFilename = require('unique-filename')
 
 const Installer = require('../installer').Installer
 
@@ -19,19 +18,25 @@ class GithubInstaller extends Installer {
     fetch(`https://api.github.com/repos/${path}/releases/latest`).then(res => res.json())
       .then(release => release.assets).then(assets => {
         return findBinary(assets, a => a.name).browser_download_url
-      })
+      }).then(fetch).then(res => res.body).then(this.saveArchive)
   }
 
-  download (url, dest, cb) {
-    var file = fs.createWriteStream(dest)
-    https.get(url, function (response) {
-      response.pipe(file)
-      file.on('finish', function () {
-        file.close(cb) // close() is async, call cb after close completes.
-      })
-    }).on('error', function (err) { // Handle errors
-      fs.unlink(dest) // Delete the file async. (But we don't check the result)
-      if (cb) cb(err.message)
+  /**
+   *
+   * @param {NodeJS.ReadableStream} responseStream
+   * @param {string} output file path
+   */
+  saveArchive (responseStream, output) {
+    if (!output) {
+      output = uniqueFilename(os.tmpdir())
+    }
+    return new Promise((resolve, reject) => {
+      var archive = fs.createWriteStream(output)
+      responseStream
+        .on('error', reject)
+        .pipe(archive)
+        .on('finish', () => resolve(output))
+        .on('error', reject)
     })
   };
 }

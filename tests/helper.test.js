@@ -1,3 +1,4 @@
+const path = require('path')
 const helper = require('../src/helper')
 
 describe('helper', () => {
@@ -17,9 +18,29 @@ describe('helper', () => {
     expect(() => helper.findBinary(binaries, b => b, 'linux', 'arm')).toThrow('Unsupported OS architecture arm')
   })
 
-  test('getBinaryFromArchive', () => {
-    return helper.getBinaryFromArchive('./tests/binaries/program_1.0.0_windows_amd64.zip').then(binary => {
-      expect(binary).toBe('program_1.0.0_windows_amd64/program')
+  test('findBinary: unsupported platform', () => {
+    expect(() => helper.findBinary(binaries, b => b, 'android', 'x64')).toThrow('Unsupported platform android')
+  })
+
+  test('findBinary: unsupported arch', () => {
+    expect(() => helper.findBinary(binaries, b => b, 'linux', 'arm')).toThrow('Unsupported OS architecture arm')
+  })
+
+  test('getBinaryFromArchive: zip', () => {
+    return helper.getBinaryFromArchive('./tests/binaries/program_1.0.0_windows_amd64.zip', 'dist').then(binary => {
+      expect(binary).toBe(path.resolve('dist', 'program_1.0.0_windows_amd64/program.exe'))
+    })
+  })
+
+  test('getBinaryFromArchive: tar.gz', () => {
+    return helper.getBinaryFromArchive('./tests/binaries/program_1.0.0_linux_amd64.tar.gz', 'dist').then(binary => {
+      expect(binary).toBe(path.resolve('dist', 'program_1.0.0_linux_amd64/program'))
+    })
+  })
+
+  test('getBinaryFromArchive: empty', () => {
+    return helper.getBinaryFromArchive('./tests/binaries/program_1.0.0_windows_amd64_empty.zip', 'dist').catch(err => {
+      expect(err.message).toEqual('Could not find binary in archive "./tests/binaries/program_1.0.0_windows_amd64_empty.zip"')
     })
   })
 })

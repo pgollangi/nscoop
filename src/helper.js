@@ -1,5 +1,6 @@
 const decompress = require('decompress')
 const path = require('path')
+const os = require('os')
 
 const { GithubInstaller } = require('./installers/github')
 
@@ -77,21 +78,34 @@ function findBinary (binaries, namer, platform, arch) {
   }
   var matcher = new BinaryMatcher(platform, arch)
   var found = binaries.find(b => matcher.match(namer(b)))
+  if (!found) {
+    throw new Error(`Could not find suitable binary the current platform.
+      Please report an issue at github.com/pgollang/nscoop if you think this must be supported.`)
+  }
   return found
 }
 
 /**
    *
-   * @param {string} archive
+   * Extracts the archive and look for binary inside it and returns the path to it
+   *
+   * @param {string} archivePath
+   * @param {string} outDir
    */
-function getBinaryFromArchive (archivePath) {
-  return decompress(archivePath, 'dist', {
+function getBinaryFromArchive (archivePath, outDir) {
+  if (!outDir) {
+    outDir = os.tmpdir()
+  }
+  return decompress(archivePath, outDir, {
     filter: file => {
       var ext = path.extname(file.path)
       return ext === '.exe' || ext === ''
     }
   }).then(files => {
-    return files[0].path
+    if (files.length === 0) {
+      throw new Error(`Could not find binary in archive "${archivePath}"`)
+    }
+    return path.resolve(outDir, files[0].path)
   })
 }
 
