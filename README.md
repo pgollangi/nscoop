@@ -3,12 +3,12 @@
 </p>
 
 <p align="center">
-  <img src="https://github.com/pgollangi/nscoop/workflows/build/badge.svg" alt="build">
+  <a href="https://github.com/pgollangi/nscoop"><img src="https://github.com/pgollangi/nscoop/workflows/build/badge.svg" alt="build"></a>
   <a href="https://codecov.io/gh/pgollangi/nscoop"><img src="https://img.shields.io/codecov/c/github/pgollangi/nscoop" alt="Coverage Status"></a>
-  <img src="https://img.shields.io/npm/v/nscoop" alt="npm">
+  <a href="https://www.npmjs.com/package/nscoop"><img src="https://img.shields.io/npm/v/nscoop" alt="npm"></a>
   <a href="https://david-dm.org/pgollangi/nscoop"><img src="https://david-dm.org/pgollangi/nscoop/status.svg" alt="dependencies Status"></a>
   <a href="https://david-dm.org/pgollangi/nscoop?type=dev"><img src="https://david-dm.org/pgollangi/nscoop/dev-status.svg" alt="devDependencies Status"></a>
-  <img src="https://img.shields.io/github/license/pgollangi/nscoop" alt="License: MIT">
+  <a href="https://github.com/pgollangi/nscoop/blob/master/LICENSE"><img src="https://img.shields.io/github/license/pgollangi/nscoop" alt="License: MIT"></a>
 </p>
 
 # nscoop 
