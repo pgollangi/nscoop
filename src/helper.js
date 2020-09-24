@@ -1,8 +1,11 @@
 const decompress = require('decompress')
 const path = require('path')
 const os = require('os')
+var uniqueFilename = require('unique-filename')
 
 const { GithubInstaller } = require('./installers/github')
+
+const OMIT_PRESET = ['LICENSE', 'README.md']
 
 function getInstaller (repo) {
   return GithubInstaller
@@ -94,12 +97,14 @@ function findBinary (binaries, namer, platform, arch) {
    */
 function getBinaryFromArchive (archivePath, outDir) {
   if (!outDir) {
-    outDir = os.tmpdir()
+    outDir = uniqueFilename(os.tmpdir())
   }
   return decompress(archivePath, outDir, {
     filter: file => {
       var ext = path.extname(file.path)
-      return ext === '.exe' || ext === ''
+      var filename = path.basename(file.path).toLocaleLowerCase()
+      return (ext === '.exe' || ext === '') &&
+       OMIT_PRESET.findIndex(o => o.toLocaleLowerCase() === filename) === -1
     }
   }).then(files => {
     if (files.length === 0) {

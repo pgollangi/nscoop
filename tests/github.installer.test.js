@@ -5,7 +5,11 @@ const { GithubInstaller } = require('../src/installers/github')
 jest.mock('fs')
 
 describe('github.installer', () => {
-  const installer = new GithubInstaller('github.com/pgollangi/nscoop')
+  const installer = new GithubInstaller('pgollangi/fastget')
+
+  it.skip('install', async () => {
+    await expect(installer.install()).resolves.toEqual(undefined)
+  })
 
   it('saveArchive', async () => {
     // Arrange

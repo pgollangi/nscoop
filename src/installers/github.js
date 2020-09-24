@@ -5,7 +5,7 @@ var uniqueFilename = require('unique-filename')
 
 const Installer = require('../installer').Installer
 
-const { findBinary } = require('../helper')
+const { findBinary, getBinaryFromArchive } = require('../helper')
 
 class GithubInstaller extends Installer {
   getRepoPath () {
@@ -15,10 +15,10 @@ class GithubInstaller extends Installer {
   install () {
     var path = this.getRepoPath()
 
-    fetch(`https://api.github.com/repos/${path}/releases/latest`).then(res => res.json())
+    return fetch(`https://api.github.com/repos/${path}/releases/latest`).then(res => res.json())
       .then(release => release.assets).then(assets => {
         return findBinary(assets, a => a.name).browser_download_url
-      }).then(fetch).then(res => res.body).then(this.saveArchive)
+      }).then(fetch).then(res => res.body).then(this.saveArchive).then(getBinaryFromArchive).then(this.createShim)
   }
 
   /**
@@ -35,10 +35,20 @@ class GithubInstaller extends Installer {
       responseStream
         .on('error', reject)
         .pipe(archive)
-        .on('finish', () => resolve(output))
+        .on('finish', () => {
+          resolve(output)
+        })
         .on('error', reject)
     })
-  };
+  }
+
+  /**
+ *
+ * @param {string} binaryPath Path to binary extracted from archive
+ */
+  createShim (binaryPath) {
+    console.log('Creating shim ', binaryPath)
+  }
 }
 
 exports.GithubInstaller = GithubInstaller
