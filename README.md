@@ -1,10 +1,15 @@
-![CI](https://github.com/pgollangi/nscoop/workflows/build/badge.svg)
-[![Codecov](https://img.shields.io/codecov/c/github/pgollangi/nscoop)](https://codecov.io/gh/pgollangi/nscoop)
-![npm](https://img.shields.io/npm/v/nscoop)
-[![dependencies Status](https://david-dm.org/pgollangi/nscoop/status.svg)](https://david-dm.org/pgollangi/nscoop)
-[![devDependencies Status](https://david-dm.org/pgollangi/nscoop/dev-status.svg)](https://david-dm.org/pgollangi/nscoop?type=dev)
-![License: MIT](https://img.shields.io/github/license/pgollangi/nscoop)
-<!-- ![node-current](https://img.shields.io/node/v/nscoop) -->
+<p align="center">
+  <img width="460" height="300" src="https://repository-images.githubusercontent.com/292270673/f535df80-feac-11ea-8f5f-50a6f0771c4e">
+</p>
+
+<p align="center">
+  <img src="https://github.com/pgollangi/nscoop/workflows/build/badge.svg" alt="build">
+  <a href="https://codecov.io/gh/pgollangi/nscoop"><img src="https://img.shields.io/codecov/c/github/pgollangi/nscoop" alt="Coverage Status"></a>
+  <img src="https://img.shields.io/npm/v/nscoop" alt="npm">
+  <a href="https://david-dm.org/pgollangi/nscoop"><img src="https://david-dm.org/pgollangi/nscoop/status.svg" alt="dependencies Status"></a>
+  <a href="https://david-dm.org/pgollangi/nscoop?type=dev"><img src="https://david-dm.org/pgollangi/nscoop/dev-status.svg" alt="devDependencies Status"></a>
+  <img src="https://img.shields.io/github/license/pgollangi/nscoop" alt="License: MIT">
+</p>
 
 # nscoop 
 
