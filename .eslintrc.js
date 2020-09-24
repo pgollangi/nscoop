@@ -12,5 +12,6 @@ module.exports = {
     ecmaVersion: 12
   },
   rules: {
+    'jest/no-disabled-tests': 'off'
   }
 }
