@@ -5,7 +5,8 @@ module.exports = {
     es2021: true
   },
   extends: [
-    'standard'
+    'standard',
+    'plugin:jest/recommended'
   ],
   parserOptions: {
     ecmaVersion: 12

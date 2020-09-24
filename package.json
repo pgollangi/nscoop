@@ -4,9 +4,9 @@
   "description": "Install portable cross-platform executable binaries via NPM",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint index.js ",
+    "lint": "eslint index.js src/**.js tests/**.js",
     "test": "jest --ci --coverage",
-    "coverage": "codecov"
+    "coverage": "codecov --disable=gcov"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "commander": "^6.1.0",
+    "decompress": "^4.2.1",
     "node-fetch": "^2.6.1",
     "tar": "^6.0.5"
   },
@@ -37,6 +38,7 @@
     "eslint": "^7.9.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jest": "^24.0.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
