@@ -1,7 +1,7 @@
 {
   "name": "nscoop",
   "version": "0.0.1",
-  "description": "Install portable cross-platform executable binaries via NPM",
+  "description": "Install portable cross-platform executable binaries via NPM directly from git releases.",
   "main": "index.js",
   "scripts": {
     "lint": "eslint index.js src/**.js tests/**.js",
@@ -29,9 +29,12 @@
     "node": ">= 6"
   },
   "dependencies": {
+    "chalk": "^4.1.0",
+    "cli-progress": "^3.8.2",
     "commander": "^6.1.0",
     "decompress": "^4.2.1",
     "node-fetch": "^2.6.1",
+    "progress-stream": "^2.0.0",
     "tar": "^6.0.5",
     "unique-filename": "^1.1.1"
   },

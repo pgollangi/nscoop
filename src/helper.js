@@ -3,13 +3,7 @@ const path = require('path')
 const os = require('os')
 var uniqueFilename = require('unique-filename')
 
-const { GithubInstaller } = require('./installers/github')
-
 const OMIT_PRESET = ['LICENSE', 'README.md']
-
-function getInstaller (repo) {
-  return GithubInstaller
-}
 
 class Matcher {
   /**
@@ -113,8 +107,6 @@ function getBinaryFromArchive (archivePath, outDir) {
     return path.resolve(outDir, files[0].path)
   })
 }
-
-exports.getInstaller = getInstaller
 
 exports.findBinary = findBinary
 exports.getBinaryFromArchive = getBinaryFromArchive

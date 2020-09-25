@@ -5,6 +5,10 @@ class Installer {
     this.repo = repo
     this.options = options
   }
+
+  canInstall (repo) {
+    return false
+  }
 }
 
 exports.Installer = Installer

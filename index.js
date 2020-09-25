@@ -2,19 +2,30 @@
 
 const { program } = require('commander')
 
-const { getInstaller } = require('./src/helper')
+const { getInstaller } = require('./src/installers')
+const pInfo = require('./package.json')
 
 program
-  .version('0.1.0')
-  .description('Install portable cross-platform executable binaries via NPM')
+  .version(pInfo.version)
+  .description(pInfo.description)
 
 program
   .command('install [repo]')
+  .alias('i')
   .description('Install binary from git repository')
   .action(function (repo, options) {
-    var InstallerDef = getInstaller(repo)
-    var installer = new InstallerDef(repo, options)
-    installer.install()
+    var installer = getInstaller(repo, options)
+    if (!installer) {
+      // no suitable installers found.
+      console.log(' nscoop could not install binary from this repository.')
+      console.log(' Please raise an FR at github.com/pgollangi/nscoop to get this supported.')
+      return
+    }
+    installer.install().then(res => {
+      console.log('Installation success!!')
+    }).catch(err => {
+      console.log(`ERROR : ${err.message || err}`)
+    })
   }).on('-h, --help', function () {
     console.log('')
     console.log('Examples:')
@@ -25,23 +36,21 @@ program
 program
   .command('uninstall <cmd>')
   .alias('ex')
-  .description('execute the given remote cmd')
-  .option('-e, --exec_mode <mode>', 'Which exec mode to use')
+  .description('Uninstall binary installed by nscoop')
   .action(function (cmd, options) {
     console.log('exec "%s" using %s mode', cmd, options.exec_mode)
-  }).on('--help', function () {
+  }).on('-h, --help', function () {
     console.log('')
     console.log('Examples:')
     console.log('')
-    console.log('  $ deploy exec sequential')
-    console.log('  $ deploy exec async')
+    console.log('  $ nscoop uninstall pgollang/fastget')
   })
 
 // must be before .parse()
 program.on('--help', () => {
   console.log('')
-  console.log('Example call:')
-  console.log('  $ custom-help --help')
+  console.log('For more about usage:')
+  console.log('  $ nscoop help')
 })
 
 program.parse(process.argv)
