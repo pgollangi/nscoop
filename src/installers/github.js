@@ -86,7 +86,6 @@ class GithubInstaller extends Installer {
     progressStream.on('finish', function (progress) {
       bar.stop()
     })
-
     return new Promise((resolve, reject) => {
       var archive = fs.createWriteStream(output)
       res.body
@@ -106,6 +105,7 @@ class GithubInstaller extends Installer {
  */
   createShim (binaryPath) {
     console.log('Creating shim ', binaryPath)
+    return path.basename(binaryPath)
   }
 }
 
