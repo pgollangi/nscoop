@@ -14,6 +14,8 @@
   },
   "keywords": [
     "nscoop",
+    "cli",
+    "command",
     "npm-binary-installer",
     "binary-installer"
   ],
