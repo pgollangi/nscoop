@@ -7,7 +7,7 @@ const uniqueFilename = require('unique-filename')
 const progress = require('progress-stream')
 const cliProgress = require('cli-progress')
 
-const { Installer } = require('../installer')
+const { Installer } = require('./installer')
 
 const { findBinary, getBinaryFromArchive } = require('../helper')
 
