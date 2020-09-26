@@ -2,6 +2,7 @@ const os = require('os')
 const fs = require('fs')
 const path = require('path')
 const fetch = require('node-fetch')
+const logSymbols = require('log-symbols')
 const uniqueFilename = require('unique-filename')
 const progress = require('progress-stream')
 const cliProgress = require('cli-progress')
@@ -28,7 +29,6 @@ class GithubInstaller extends Installer {
     console.log(`Repository: ${repoURL}`)
     var latestRelease = this.getLatestReleaseURL()
 
-    var archiveName
     return fetch(latestRelease).then(res => {
       const body = res.json()
       if (res.ok) {
@@ -41,15 +41,15 @@ class GithubInstaller extends Installer {
         throw new Error(e.message)
       })
     }).then(release => {
-      console.log(`Latest release: ${release.name} (tag: ${release.tag_name})`)
+      console.log(logSymbols.success, `Latest release: ${release.name} (tag: ${release.tag_name})`)
       return release.assets
     }).then(assets => {
       const asset = findBinary(assets, a => a.name)
-      archiveName = asset.name
-      console.log(`Found suitable binary for your platform - ${archiveName}`)
+      this.archiveName = asset.name
+      console.log(logSymbols.success, `Found suitable binary for your platform - ${this.archiveName}`)
       return asset.browser_download_url
-    }).then(fetch).then(this.saveArchive).then(archive => {
-      console.log(`Extracting archive ${archiveName}`)
+    }).then(fetch).then(this.downloadArchive.bind(this)).then(archive => {
+      console.log(logSymbols.success, `Extracting archive ${this.archiveName}`)
       const binary = getBinaryFromArchive(archive)
       return binary
     }).then(this.createShim)
@@ -60,18 +60,21 @@ class GithubInstaller extends Installer {
    * @param {fetch.Response} responseStream
    * @param {string} output file path
    */
-  saveArchive (res, output) {
+  downloadArchive (res, output) {
     if (!output) {
       output = uniqueFilename(os.tmpdir())
     }
+    console.log(logSymbols.success, `Downloading archive ${this.archiveName}`)
 
     const contentLength = res.headers.get('content-length')
 
     const bar = new cliProgress.SingleBar({
-      format: 'Downloading.. |  {bar} | {percentage}% | Speed: {speed}',
+      format: `${this.archiveName} |  {bar} | {percentage}% | ETA: {eta_formatted} | {value}/{total}`,
       barCompleteChar: '\u2588',
       barIncompleteChar: '\u2591',
-      hideCursor: true
+      hideCursor: true,
+      stopOnComplete: true,
+      clearOnComplete: true
     })
     bar.start(contentLength, 0, {
       speed: 'N/A'
@@ -83,9 +86,6 @@ class GithubInstaller extends Installer {
       bar.update(progress.transferred)
     })
 
-    progressStream.on('finish', function (progress) {
-      bar.stop()
-    })
     return new Promise((resolve, reject) => {
       var archive = fs.createWriteStream(output)
       res.body
@@ -104,7 +104,7 @@ class GithubInstaller extends Installer {
  * @param {string} binaryPath Path to binary extracted from archive
  */
   createShim (binaryPath) {
-    console.log('Creating shim ', binaryPath)
+    console.log(logSymbols.success, 'Creating shim ', binaryPath)
     return path.basename(binaryPath)
   }
 }

@@ -33,6 +33,7 @@
     "cli-progress": "^3.8.2",
     "commander": "^6.1.0",
     "decompress": "^4.2.1",
+    "log-symbols": "^4.0.0",
     "node-fetch": "^2.6.1",
     "progress-stream": "^2.0.0",
     "tar": "^6.0.5",
