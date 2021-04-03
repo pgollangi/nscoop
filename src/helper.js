@@ -1,7 +1,7 @@
 const decompress = require('decompress')
 const path = require('path')
 const os = require('os')
-var uniqueFilename = require('unique-filename')
+const uniqueFilename = require('unique-filename')
 
 const OMIT_PRESET = ['LICENSE', 'README.md']
 
@@ -51,14 +51,14 @@ class BinaryMatcher {
      * @param {string} name
      */
   match (name) {
-    var p = PLATFORMS[this.platform]
+    const p = PLATFORMS[this.platform]
     if (!p) {
       throw new Error('Unsupported platform ' + this.platform)
     }
     if (!p.match(name)) {
       return false
     }
-    var a = ARCHS[this.arch]
+    const a = ARCHS[this.arch]
     if (!a) {
       throw new Error('Unsupported OS architecture ' + this.arch)
     }
@@ -73,8 +73,8 @@ function findBinary (binaries, namer, platform, arch) {
   if (!arch) {
     arch = process.arch
   }
-  var matcher = new BinaryMatcher(platform, arch)
-  var found = binaries.find(b => matcher.match(namer(b)))
+  const matcher = new BinaryMatcher(platform, arch)
+  const found = binaries.find(b => matcher.match(namer(b)))
   if (!found) {
     throw new Error(`Could not find suitable binary the current platform.
       Please report an issue at github.com/pgollang/nscoop if you think this must be supported.`)
@@ -95,8 +95,8 @@ function getBinaryFromArchive (archivePath, outDir) {
   }
   return decompress(archivePath, outDir, {
     filter: file => {
-      var ext = path.extname(file.path)
-      var filename = path.basename(file.path).toLocaleLowerCase()
+      const ext = path.extname(file.path)
+      const filename = path.basename(file.path).toLocaleLowerCase()
       return (ext === '.exe' || ext === '') &&
        OMIT_PRESET.findIndex(o => o.toLocaleLowerCase() === filename) === -1
     }
