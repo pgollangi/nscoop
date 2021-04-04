@@ -4,7 +4,7 @@
   "description": "Install portable cross-platform executable binaries via NPM directly from git releases.",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint index.js src/**.js tests/**.js",
+    "lint": "eslint index.js src/**/*.js tests/**/*.js",
     "test": "jest --ci --coverage",
     "coverage": "codecov --disable=gcov"
   },

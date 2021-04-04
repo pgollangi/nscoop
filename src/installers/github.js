@@ -25,9 +25,9 @@ class GithubInstaller extends Installer {
   }
 
   install () {
-    var repoURL = this.getRepoURL()
+    const repoURL = this.getRepoURL()
     console.log(`Repository: ${repoURL}`)
-    var latestRelease = this.getLatestReleaseURL()
+    const latestRelease = this.getLatestReleaseURL()
 
     return fetch(latestRelease).then(res => {
       const body = res.json()
@@ -35,7 +35,7 @@ class GithubInstaller extends Installer {
         return body
       }
       if (res.status === 404) {
-        throw new Error('No releases found or unknow github repository.')
+        throw new Error('No releases found or unknown github repository.')
       }
       return body.then(e => {
         throw new Error(e.message)
@@ -87,7 +87,7 @@ class GithubInstaller extends Installer {
     })
 
     return new Promise((resolve, reject) => {
-      var archive = fs.createWriteStream(output)
+      const archive = fs.createWriteStream(output)
       res.body
         .on('error', reject)
         .pipe(progressStream)
