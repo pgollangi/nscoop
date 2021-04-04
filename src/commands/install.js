@@ -9,7 +9,7 @@ class InstallCommand extends Command {
   }
 
   execute (repo, options) {
-    var installer = getInstaller(repo, options)
+    const installer = getInstaller(repo, options)
     if (!installer) {
       // no suitable installers found.
       console.log(' nscoop could not install binary from this repository.')
