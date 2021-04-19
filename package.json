@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "chalk": "^4.1.0",
-    "cli-progress": "^3.8.2",
+    "cli-progress": "^3.9.0",
     "commander": "^7.0.0",
     "decompress": "^4.2.1",
     "log-symbols": "^5.0.0",
