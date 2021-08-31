@@ -36,7 +36,7 @@
     "log-symbols": "^5.0.0",
     "node-fetch": "^2.6.1",
     "progress-stream": "^2.0.0",
-    "tar": "^6.0.5",
+    "tar": "^6.1.9",
     "unique-filename": "^1.1.1"
   },
   "devDependencies": {
