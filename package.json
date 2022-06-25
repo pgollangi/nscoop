@@ -34,7 +34,7 @@
     "commander": "^7.0.0",
     "decompress": "^4.2.1",
     "log-symbols": "^5.0.0",
-    "node-fetch": "^2.6.1",
+    "node-fetch": "^2.6.7",
     "progress-stream": "^2.0.0",
     "tar": "^6.0.5",
     "unique-filename": "^1.1.1"
