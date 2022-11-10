@@ -47,4 +47,4 @@ $ nscoop install pgollangi/netselect
 If you have a public git repo available on github which releases portable binaries. Thats all you need to make those binaries installed on any OS using `nscoop`.
 
 ## Author
-[Prasanna Kumar](https://p11r.dev)
+[Prasanna Kumar](https://pgollangi.github.io/tabs/about)
